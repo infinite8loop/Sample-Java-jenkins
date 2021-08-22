@@ -35,6 +35,12 @@ pipeline {
                 sh 'docker run --name Test-Env-${BUILD_NUMBER} chinpan111999/demo-java-app:${BUILD_NUMBER}'
             }
         }
+        stage('Deploy approval'){
+          steps{
+              input "Deploy to PROD?"
+            }
+        }
+
         stage('Deploy to Prod'){
             steps{
                 sh 'docker run --name Prod-Env-${BUILD_NUMBER} chinpan111999/demo-java-app:${BUILD_NUMBER}'
