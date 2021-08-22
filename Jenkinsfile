@@ -30,9 +30,14 @@ pipeline {
                     }
             }
         }
-        stage('Deploy'){
+        stage('Deploy to Test'){
             steps{
-                sh 'docker run -p 8084:8081 chinpan111999/demo-java-app:${BUILD_NUMBER}'
+                sh 'docker run --name Test-Env-${BUILD_NUMBER} chinpan111999/demo-java-app:${BUILD_NUMBER}'
+            }
+        }
+        stage('Deploy to Prod'){
+            steps{
+                sh 'docker run --name Prod-Env-${BUILD_NUMBER} chinpan111999/demo-java-app:${BUILD_NUMBER}'
             }
         }
     }
