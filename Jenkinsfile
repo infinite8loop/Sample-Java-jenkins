@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Deploy'){
             steps{
-                sh 'docker run -dit -p 8082:8081 demo-java-app:${BUILD_NUMBER}'
+                sh 'docker run -p 8084:8081 chinpan111999/demo-java-app:${BUILD_NUMBER}'
             }
         }
     }
