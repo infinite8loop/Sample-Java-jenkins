@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/Deploy-Sample-Java-Application/'
+//                 sh 'cd /var/lib/jenkins/workspace/Deploy-Sample-Java-Application/'
                 sh 'mvn install'
             }
         }
